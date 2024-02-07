@@ -4,13 +4,15 @@
  * connects the app shell to the React application(s) that make up this
  * microfrontend.
  */
-import { getAsyncLifecycle, defineConfigSchema } from "@openmrs/esm-framework";
+import { getAsyncLifecycle, defineConfigSchema, getSyncLifecycle } from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
+import { createLeftPanelLink } from "./left-panel-link.component";
+import { t } from "i18next";
 
-const moduleName = "@openmrs/esm-template-app";
+const moduleName = "@openmrs/esm-christiano";
 
 const options = {
-  featureName: "root-world",
+  featureName: "",
   moduleName,
 };
 
@@ -50,17 +52,26 @@ export const root = getAsyncLifecycle(
 /**
  * The following are named exports for the extensions defined in this frontend modules. See the `routes.json` file to see how these are used.
  */
-export const redBox = getAsyncLifecycle(
-  () => import("./boxes/extensions/red-box.component"),
+export const homeLeftPanelLink = getSyncLifecycle(
+  createLeftPanelLink({
+    name: "home",
+    title: t("home", "Home"),
+  }),
   options
 );
 
-export const blueBox = getAsyncLifecycle(
-  () => import("./boxes/extensions/blue-box.component"),
+export const loginLeftPanelLink = getSyncLifecycle(
+  createLeftPanelLink({
+    name: "login",
+    title: t("login", "Login"),
+  }),
   options
 );
 
-export const brandBox = getAsyncLifecycle(
-  () => import("./boxes/extensions/brand-box.component"),
+export const registerLeftPanelLink = getSyncLifecycle(
+  createLeftPanelLink({
+    name: "register",
+    title: t("register", "Register"),
+  }),
   options
 );

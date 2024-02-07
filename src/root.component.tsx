@@ -8,37 +8,36 @@
  *   https://openmrs.github.io/openmrs-esm-core/#/main/config
  */
 
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { Boxes } from "./boxes/slot/boxes.component";
-import Greeter from "./greeter/greeter.component";
-import PatientGetter from "./patient-getter/patient-getter.component";
-import Resources from "./resources/resources.component";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LeftNavMenu, setLeftNav, unsetLeftNav } from "@openmrs/esm-framework";
+import Home from "./pages/home.component";
+import Login from "./pages/login.component";
+import Register from "./pages/register.component";
 import styles from "./root.scss";
 
 const Root: React.FC = () => {
-  const { t } = useTranslation();
+  const spaBasePath = window.spaBase;
+
+  useEffect(() => {
+    setLeftNav({
+      name: "christiano-left-panel-slot",
+      basePath: spaBasePath,
+    });
+    return () => unsetLeftNav("christiano-left-panel-slot");
+  }, [spaBasePath]);
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.welcome}>
-        {t("welcomeText", "Welcome to the O3 Template app")}
-      </h3>
-      <p className={styles.explainer}>
-        {t(
-          "explainer",
-          "The following examples demonstrate some key features of the O3 framework"
-        )}
-        .
-      </p>
-      {/* Greeter: demonstrates the configuration system */}
-      <Greeter />
-      {/* Boxes: demonstrates the extension system */}
-      <Boxes />
-      {/* PatientGetter: demonstrates data fetching */}
-      <PatientGetter />
-      <Resources />
-    </div>
+    <BrowserRouter basename={`${window.getOpenmrsSpaBase()}christiano`}>
+      <LeftNavMenu />
+      <main className={styles.container}>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 };
 
