@@ -6,25 +6,26 @@
   },
   "extensions": [
     {
-      "name": "Red box",
-      "component": "redBox",
-      "slot": "Boxes"
+      "component": "homeLeftPanelLink",
+      "name": "christiano-left-panel-link",
+      "slot": "christiano-left-panel-slot",
+      "order": 0
     },
     {
-      "name": "Blue box",
-      "component": "blueBox",
-      "slot": "Boxes"
+      "component": "loginLeftPanelLink",
+      "name": "login-left-panel-link",
+      "slot": "christiano-left-panel-slot"
     },
-        {
-      "name": "Brand box",
-      "component": "blueBox",
-      "slot": "Boxes"
+    {
+      "component": "registerLeftPanelLink",
+      "name": "register-left-panel-link",
+      "slot": "christiano-left-panel-slot"
     }
   ],
   "pages": [
     {
       "component": "root",
-      "route": "root"
+      "route": "christiano"
     }
   ]
 }
