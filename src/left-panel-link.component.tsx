@@ -14,13 +14,13 @@ function LinkExtension({ config }: { config: LinkConfig }) {
 
     let urlSegment = useMemo(() => decodeURIComponent(last(location.pathname.split("/"))), [location.pathname]);
 
-    const isUUID = (value) => {
+    const isUUID = (value: string) => {
         const regex = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/;
         return regex.test(value);
     };
 
     if (isUUID(urlSegment)) {
-        urlSegment = "summary";
+        urlSegment = "home";
     }
 
     return (

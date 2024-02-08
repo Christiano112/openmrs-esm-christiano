@@ -1,8 +1,8 @@
 @use '@carbon/styles/scss/spacing';
 @use '@carbon/styles/scss/type';
+@use '@carbon/colors';
 
 .container {
   padding: spacing.$spacing-07 spacing.$spacing-07 spacing.$spacing-07 spacing.$spacing-13;
   margin-left: spacing.$spacing-13;
 }
-
