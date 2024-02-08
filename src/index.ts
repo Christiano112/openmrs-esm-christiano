@@ -7,7 +7,6 @@
 import { getAsyncLifecycle, defineConfigSchema, getSyncLifecycle } from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
 import { createLeftPanelLink } from "./left-panel-link.component";
-import { t } from "i18next";
 
 const moduleName = "@openmrs/esm-christiano";
 
@@ -55,15 +54,7 @@ export const root = getAsyncLifecycle(
 export const homeLeftPanelLink = getSyncLifecycle(
   createLeftPanelLink({
     name: "home",
-    title: t("home", "Home"),
-  }),
-  options
-);
-
-export const loginLeftPanelLink = getSyncLifecycle(
-  createLeftPanelLink({
-    name: "login",
-    title: t("login", "Login"),
+    title: "Home",
   }),
   options
 );
@@ -71,7 +62,7 @@ export const loginLeftPanelLink = getSyncLifecycle(
 export const registerLeftPanelLink = getSyncLifecycle(
   createLeftPanelLink({
     name: "register",
-    title: t("register", "Register"),
+    title: "Register",
   }),
   options
 );

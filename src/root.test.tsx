@@ -36,7 +36,7 @@ import Root from "./root.component";
  */
 const mockUseConfig = useConfig as jest.Mock;
 
-it("renders a landing page for the Template app", () => {
+it("renders a landing page for Christiano app", () => {
   const config: Config = { casualGreeting: false, whoToGreet: ["World"] };
   mockUseConfig.mockReturnValue(config);
 

@@ -12,7 +12,6 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LeftNavMenu, setLeftNav, unsetLeftNav } from "@openmrs/esm-framework";
 import Home from "./pages/home.component";
-import Login from "./pages/login.component";
 import Register from "./pages/register.component";
 import styles from "./root.scss";
 
@@ -33,7 +32,6 @@ const Root: React.FC = () => {
       <main className={styles.container}>
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </main>

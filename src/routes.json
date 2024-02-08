@@ -8,12 +8,6 @@
     {
       "component": "homeLeftPanelLink",
       "name": "christiano-left-panel-link",
-      "slot": "christiano-left-panel-slot",
-      "order": 0
-    },
-    {
-      "component": "loginLeftPanelLink",
-      "name": "login-left-panel-link",
       "slot": "christiano-left-panel-slot"
     },
     {
