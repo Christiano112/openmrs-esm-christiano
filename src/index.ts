@@ -4,14 +4,15 @@
  * connects the app shell to the React application(s) that make up this
  * microfrontend.
  */
-import { getAsyncLifecycle, defineConfigSchema, getSyncLifecycle } from "@openmrs/esm-framework";
+import { defineConfigSchema, getSyncLifecycle } from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
 import { createLeftPanelLink } from "./left-panel-link.component";
+import Root from "./root.component";
 
 const moduleName = "@openmrs/esm-christiano";
 
 const options = {
-  featureName: "",
+  featureName: "christiano",
   moduleName,
 };
 
@@ -43,10 +44,7 @@ export function startupApp() {
  * will be `openmrsSpaBase() + 'root'`, which is usually
  * `/openmrs/spa/root`.
  */
-export const root = getAsyncLifecycle(
-  () => import("./root.component"),
-  options
-);
+export const root = getSyncLifecycle(Root, options);
 
 /**
  * The following are named exports for the extensions defined in this frontend modules. See the `routes.json` file to see how these are used.
