@@ -108,7 +108,7 @@ const Register = () => {
           name="radio-button-group"
           defaultSelected="male"
           legendText="Select Gender"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={() =>
             setFormValues({
               ...formValues,
               person: {
